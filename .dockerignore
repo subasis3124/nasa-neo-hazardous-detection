@@ -1,0 +1,10 @@
+Data/
+.github/
+nvnv/
+Nasa_Near_Earth_Object_Hazardous_Detection.egg-info/
+dummies/
+catboost_info/
+app-logs/
+.vscode/
+__pycache__/
+.env

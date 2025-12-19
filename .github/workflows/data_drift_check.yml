@@ -1,0 +1,44 @@
+name: Check Data Drift
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Runs every Monday at midnight
+  workflow_dispatch:
+
+jobs:
+  data-drift-check-job:
+    name: Data Drift Detection
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install --upgrade dagshub
+
+      - name: Run Data Drift Check Python Script
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+          DAGS_REPO_OWNER_NAME: ${{ secrets.DAGS_REPO_OWNER_NAME }}
+          DAGS_REPO_NAME: ${{ secrets.DAGS_REPO_NAME }}
+          MLFLOW_REMOTE_TRACKING_URL: ${{ secrets.MLFLOW_REMOTE_TRACKING_URL }}
+          DAGSHUB_USER_TOKEN: ${{ secrets.DAGS_USER_TOKEN }}
+        run: python -m src.custom.data_validation
+
+
+        

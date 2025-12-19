@@ -1,0 +1,80 @@
+stages:
+  api_extraction:
+    cmd: echo "extraction of data from api"
+    outs:
+      - artifact/api_data.json
+    desc: "Extract data from remote API"
+
+  data_storage:
+    cmd: python src/custom/extraction.py
+    deps:
+      - artifact/api_data.json
+    outs:
+      - artifact/extraction.json
+    desc: "Data extracted from remote PostgreSQL DB"
+  
+  ingestion:
+    cmd: python src/custom/data_ingestion.py
+    deps:
+      - src/custom/data_ingestion.py
+      - artifact/extraction.json
+    outs:
+      - artifact/ingestion.json
+      - Data/neo_data.csv
+    desc: "Data ingestion completed from remote DB"
+
+  transformation:
+    cmd: python src/custom/data_transformation.py
+    deps:
+      - src/custom/data_transformation.py
+      - artifact/ingestion.json
+      - Data/neo_data.csv
+    outs:
+      - artifact/transformation_db.json
+    desc: "Data transformation completed"
+
+  model_training:
+    cmd: python src/custom/model_trainer.py
+    deps:
+      - src/custom/model_trainer.py
+      - artifact/transformation_db.json
+    outs:
+      - artifact/model_trainer_db.json
+    desc: "Model training completed"
+
+  serve_model:
+    cmd: python app.py
+    deps:
+      - app.py
+      - src/custom/model_trainer.py
+      - artifact/model_trainer_db.json
+    outs:
+      - artifact/serve_api.json
+
+  batch_prediction:
+    cmd: python src/pipeline/prediction/predict.py
+    deps:
+      - src/pipeline/prediction/predict.py
+      - artifact/api_data.json
+      - artifact/model_trainer_db.json
+    outs:
+      - artifact/fresh_prediction.json
+    desc: "Batch prediction from API and stored in DB"
+
+  data_drift_detection:
+    cmd: python src/custom/data_validation.py
+    deps:
+      - src/custom/data_validation.py
+      - artifact/extraction.json
+    outs:
+      - artifact/data_validation.json
+    desc: "Data drift detection from remote DB"
+
+  grafana_monitoring:
+    cmd: echo "Grafana monitoring placeholder"
+    deps:
+      - artifact/extraction.json
+      - artifact/fresh_prediction.json
+      - artifact/data_validation.json
+    outs:
+      - artifact/grafana_data_vis.json

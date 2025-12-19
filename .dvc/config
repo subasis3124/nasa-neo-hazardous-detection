@@ -1,0 +1,4 @@
+[core]
+    remote = origin
+['remote "origin"']
+    url = https://dagshub.com/Subrat1920/Nasa-Near-Earth-Hazardous-Detection.dvc

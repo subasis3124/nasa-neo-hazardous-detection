@@ -1,0 +1,22 @@
+scikit-learn
+sqlalchemy
+psycopg2-binary
+pandas
+ipykernel
+numpy
+imbalanced-learn
+catboost
+xgboost
+python-dotenv
+requests
+pyyaml
+mlflow
+dagshub
+optuna
+tensorflow
+keras
+scikeras
+pytest
+flask
+dvc[all]
+-e .
