@@ -31,7 +31,7 @@ SELECT
     tn.is_potentially_hazardous
 FROM train_neo tn
 JOIN prediction_table pt
-    ON pt.id::bigint = tn.id
+    ON pt.id = tn.id
 WHERE close_approach_date::date >= (
         SELECT created_at::date - INTERVAL '7 days'
         FROM target_date

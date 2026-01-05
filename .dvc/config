@@ -1,4 +1,3 @@
-[core]
-    remote = origin
 ['remote "origin"']
-    url = https://dagshub.com/Subrat1920/Nasa-Near-Earth-Hazardous-Detection.dvc
+    url = s3://dvc
+    endpointurl = https://dagshub.com/subasismishra3124/nasa-neo-hazardous-detection.s3
