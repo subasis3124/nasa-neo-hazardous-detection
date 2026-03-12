@@ -31,4 +31,4 @@ ON w.id = t.id;
 
 RECIPIENT_DATA_QUERY = "select * from alert_recipients"
 
-SENDER_EMAIL = "aegisaastro@gmail.com"
+SENDER_EMAIL = "astroaegis1@gmail.com"
