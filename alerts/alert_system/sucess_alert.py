@@ -68,17 +68,17 @@ class AlertEmailService:
 
         html_template = html_template.replace(
             "{{dashboard_link}}",
-            "https://subrat1920.grafana.net/public-dashboards/888774ac60ce422fb3f0abb526512867",
+            "https://subasis3124.grafana.net/public-dashboards/cdfa6c49066f44e289c8ab269e57a24f",
         )
 
         html_template = html_template.replace(
             "{{github_link}}",
-            "https://github.com/Subrat1920/Nasa-Near-Earth-Hazardous-Detection.git",
+            "https://github.com/subasis3124/nasa-neo-hazardous-detection",
         )
 
         html_template = html_template.replace(
             "{{log_link}}",
-            "https://github.com/Subrat1920/Nasa-Near-Earth-Hazardous-Detection/actions",
+            "https://github.com/subasis3124/nasa-neo-hazardous-detection/actions",
         )
 
         asteroid_names = risky_asteroids["name"].tolist()
