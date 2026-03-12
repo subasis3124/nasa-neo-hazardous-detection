@@ -197,7 +197,7 @@ It automates **data ingestion, preprocessing, model training, monitoring, and dr
 
 ## 👨‍💻 Author  
 
-**Subrat Mishra**  
+**Subasis Mishra**  
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit-blue?style=flat&logo=internet-explorer)](https://mishra-subrat.framer.website)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/subrat1920/)

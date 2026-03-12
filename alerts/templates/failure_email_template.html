@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NEO Pipeline Failure Alert</title>
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif; background-color:#f4f6f9; margin:0; padding:20px;">
+
+<table width="600" align="center" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;border:1px solid #e0e0e0;">
+
+<tr>
+<td style="background:#c62828;color:white;padding:20px;border-top-left-radius:8px;border-top-right-radius:8px;">
+<h2 style="margin:0;">Pipeline Failure Alert</h2>
+<p style="margin:5px 0 0 0;font-size:14px;">NASA Near-Earth Object Monitoring</p>
+</td>
+</tr>
+
+<tr>
+<td style="padding:20px;">
+
+<h3>Pipeline Status</h3>
+
+<table width="100%" style="border-collapse:collapse;font-size:14px;">
+<tr>
+<td style="padding:6px 0;"><b>Run Date</b></td>
+<td>{{run_date}}</td>
+</tr>
+
+<tr>
+<td style="padding:6px 0;"><b>Schedule</b></td>
+<td>Weekly (Monday Batch)</td>
+</tr>
+
+<tr>
+<td style="padding:6px 0;"><b>Status</b></td>
+<td style="color:#c62828;font-weight:bold;">FAILED</td>
+</tr>
+</table>
+
+<hr style="margin:20px 0;">
+
+<h3>Failure Details</h3>
+
+<table width="100%" style="border-collapse:collapse;font-size:14px;">
+<tr>
+<td><b>Failed Stage</b></td>
+<td>{{pipeline_stage}}</td>
+</tr>
+
+<tr>
+<td><b>Error Message</b></td>
+<td style="color:#c62828;">{{error_message}}</td>
+</tr>
+
+</table>
+
+<hr style="margin:20px 0;">
+
+<h3>Impact</h3>
+
+<p style="font-size:14px;">
+The scheduled weekly asteroid hazard prediction pipeline did not complete successfully.
+No prediction results were stored in the database.
+</p>
+
+<hr style="margin:20px 0;">
+
+<h3>Recommended Action</h3>
+
+<p style="font-size:14px;">
+Please review the pipeline logs and rerun the workflow if necessary.
+</p>
+
+<p style="font-size:14px;">
+Logs:
+<a href="{{log_link}}" style="color:#c62828;">View Pipeline Logs</a>
+</p>
+
+<p style="font-size:14px;">
+Repository:
+<a href="{{github_link}}" style="color:#c62828;">GitHub</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td style="background:#f0f2f5;padding:15px;text-align:center;font-size:12px;color:#666;border-bottom-left-radius:8px;border-bottom-right-radius:8px;">
+Automated Alert | NASA NEO Hazard Classification Monitoring System
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

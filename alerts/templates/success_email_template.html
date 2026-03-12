@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NEO Hazard Prediction Report</title>
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif; background-color:#f4f6f9; margin:0; padding:20px;">
+
+<table width="600" align="center" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;border:1px solid #e0e0e0;">
+
+<tr>
+<td style="background:#0b3d91;color:white;padding:20px;border-top-left-radius:8px;border-top-right-radius:8px;">
+<h2 style="margin:0;">NASA Near-Earth Object Monitoring</h2>
+<p style="margin:5px 0 0 0;font-size:14px;">Weekly Hazard Prediction Report</p>
+</td>
+</tr>
+
+<tr>
+<td style="padding:20px;">
+
+<h3 style="margin-top:0;">Pipeline Status</h3>
+
+<table width="100%" style="border-collapse:collapse;font-size:14px;">
+<tr>
+<td style="padding:6px 0;"><b>Run Date</b></td>
+<td>{{run_date}}</td>
+</tr>
+<tr>
+<td style="padding:6px 0;"><b>Schedule</b></td>
+<td>Weekly (Monday Batch)</td>
+</tr>
+<tr>
+<td style="padding:6px 0;"><b>Status</b></td>
+<td style="color:green;font-weight:bold;">SUCCESS</td>
+</tr>
+</table>
+
+<hr style="margin:20px 0;">
+
+<h3>Prediction Summary</h3>
+
+<table width="100%" style="border-collapse:collapse;font-size:14px;">
+<tr>
+<td>Total Asteroids Processed</td>
+<td><b>{{total_asteroids}}</b></td>
+</tr>
+<tr>
+<td>Hazardous Asteroids</td>
+<td style="color:#d32f2f;"><b>{{hazardous_count}}</b></td>
+</tr>
+<tr>
+<td>Non-Hazardous Asteroids</td>
+<td><b>{{safe_count}}</b></td>
+</tr>
+</table>
+
+<hr style="margin:20px 0;">
+
+<h3>Top 10 Potentially Hazardous Asteroids</h3>
+
+<div style="max-height:180px;overflow-y:auto;border:1px solid #ddd;border-radius:5px;padding:10px;background:#fafafa;">
+
+<ol style="margin:0;padding-left:20px;">
+<li>{{asteroid_1}}</li>
+<li>{{asteroid_2}}</li>
+<li>{{asteroid_3}}</li>
+<li>{{asteroid_4}}</li>
+<li>{{asteroid_5}}</li>
+<li>{{asteroid_6}}</li>
+<li>{{asteroid_7}}</li>
+<li>{{asteroid_8}}</li>
+<li>{{asteroid_9}}</li>
+<li>{{asteroid_10}}</li>
+</ol>
+
+</div>
+
+<hr style="margin:20px 0;">
+
+<h3>Data Storage</h3>
+
+<p style="font-size:14px;margin:5px 0;">
+Database: <b>Neon PostgreSQL</b>
+</p>
+
+<p style="font-size:14px;margin:5px 0;">
+Table: <b>Risk Analysis</b>
+</p>
+
+<p style="font-size:14px;margin:5px 0;">
+Run ID: <b>{{run_id}}</b>
+</p>
+
+<hr style="margin:20px 0;">
+
+<h3>Resources</h3>
+
+<p style="font-size:14px;">
+Dashboard:
+<a href="{{dashboard_link}}" style="color:#0b3d91;">View Dashboard</a>
+</p>
+
+<p style="font-size:14px;">
+Project Repository:
+<a href="{{github_link}}" style="color:#0b3d91;">GitHub</a>
+</p>
+
+<p style="font-size:14px;">
+Pipeline Logs:
+<a href="{{log_link}}" style="color:#0b3d91;">View Logs</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td style="background:#f0f2f5;padding:15px;text-align:center;font-size:12px;color:#666;border-bottom-left-radius:8px;border-bottom-right-radius:8px;">
+Automated Alert | NASA NEO Hazard Classification System
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

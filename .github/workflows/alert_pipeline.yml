@@ -1,0 +1,31 @@
+name: NEO Hazard Alert System
+
+on:
+  schedule:
+    - cron: '0 0 * * 2'  # Runs every Teusday at 5:30
+  workflow_dispatch:       # Allow manual trigger
+
+jobs:
+  run-alert-system:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Alert Email System
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          ALERTING_EMAIL_PASSWORD: ${{ secrets.ALERTING_EMAIL_PASSWORD }}
+        run: |
+          python -m alerts.alert_system.sucess_alert
